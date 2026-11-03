@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beijing Tour</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/5.1/esri/themes/light/main.css">
+    <script type="module" src="https://js.arcgis.com/5.1/"></script>
+</head>
+<body>
+    <header><h1>Beijing Tour</h1></header>
+    <main>
+        <!-- LEFT: selected photograph and form -->
+        <section id="photo-panel">
+            <h2>Beijing Photos</h2>
+            <img id="selected-photo" src="images/Beijing Olympic Stadium.jpeg" alt="Selected Beijing location">
+            <h3 id="photo-title">Beijing Olympic Stadium</h3>
+
+            <div id="add-location-section">
+                <h3>Add Your Location</h3>
+                <form id="location-form">
+                    <label for="location-title">Location title</label>
+                    <input type="text" id="location-title" placeholder="e.g. My Favorite Park" required>
+
+                    <label for="location-image">Upload a photo</label>
+                    <input type="file" id="location-image" accept="image/*" required>
+
+                    <label for="location-longitude">Longitude (degrees)</label>
+                    <input type="number" id="location-longitude" placeholder="e.g. 116.40" step="any" min="-180" max="180" required>
+
+                    <label for="location-latitude">Latitude (degrees)</label>
+                    <input type="number" id="location-latitude" placeholder="e.g. 39.99" step="any" min="-90" max="90" required>
+
+                    <button type="submit" id="add-location-btn">Add Location to Map</button>
+                </form>
+                <p id="form-message" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <!-- RIGHT: existing map -->
+        <section id="map"></section>
+    </main>
+
+    <!-- Bottom photo gallery -->
+    <section id="gallery-section">
+        <div id="gallery-header">
+            <h2>Additional locations</h2>
+            <button id="gallery-toggle" title="Collapse gallery" aria-label="Collapse or expand gallery">
+                <span id="toggle-arrow"></span>
+            </button>
+        </div>
+        <div id="gallery"></div>
+    </section>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
